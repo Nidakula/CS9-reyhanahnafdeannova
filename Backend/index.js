@@ -15,6 +15,10 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 app.use(express.json());
+// Tambahkan route default untuk root path
+app.get('/', (req, res) => {
+  res.send('Server is running on Vercel!');
+});
 
 app.use('/store', require('./src/routes/store.route'));
 app.use('/user', require('./src/routes/user.route'));
